@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "npm run build:babel && npm run build:idl",
 		"build:babel": "babel --source-maps inline --out-dir build *.js",
-		"build:idl": "./build/idl-converter.js build/idl idl/FetchController.idl idl/FetchObserver.idl",
+		"build:idl": "./build/idl-converter.js build/idl idl/*.idl",
 		"prepublish": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
