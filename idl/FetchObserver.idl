@@ -1,0 +1,30 @@
+[Exposed=(Window,Worker)]
+interface FetchObserver : EventTarget {
+	readonly attribute octet priority;
+	readonly attribute FetchState state;
+	
+	// Events
+	attribute EventHandler onstatechange;
+	attribute EventHandler onprioritychange;
+	attribute EventHandler onrequestprogress;
+	attribute EventHandler onresponseprogress;
+};
+
+dictionary RequestInit {
+	// …
+	ObserverCallback observe;
+}
+
+callback ObserverCallback void (FetchObserver observer);
+
+enum FetchState {
+	// Pending states
+	"requesting", "responding",
+	// Final states
+	"aborted", "errored", "complete"
+};
+
+[Constructor(TODO), Exposed=(Window,Worker)]
+interface FetchProgressEvent : ProgressEvent {
+	// Maybe we don't need anything else. Just move ProgressEvent to the fetch spec.
+}

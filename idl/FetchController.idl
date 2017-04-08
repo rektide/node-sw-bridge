@@ -1,0 +1,22 @@
+[Constructor(), Exposed=(Window,Worker)]
+interface FetchController {
+	readonly attribute FetchSignal signal;
+
+	void setPriority(octet priority);
+	void abort();
+	void follow(FetchSignal signal);
+	void unfollow(FetchSignal signal);
+};
+
+dictionary RequestInit {
+	FetchSignal signal;
+}
+
+[Exposed=(Window,Worker)]
+interface FetchSignal : EventTarget {
+	readonly attribute octet priority;
+	readonly attribute boolean aborted;
+
+	attribute EventHandler onabort;
+	attribute EventHandler onprioritychange;
+}
