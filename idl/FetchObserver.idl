@@ -15,7 +15,7 @@ dictionary RequestInit {
 	ObserverCallback observe;
 };
 
-callback ObserverCallback void (FetchObserver observer);
+callback ObserverCallback = void (FetchObserver observer);
 
 enum FetchState {
 	// Pending states
