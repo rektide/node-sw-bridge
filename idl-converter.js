@@ -15,7 +15,7 @@ if (typeof require !== "undefined" && require.main === module){
 	const
 	  prettyJson= o=> JSON.stringify(o, null, "\t"),
 	  convertFile= file=> parseIdl( file, dest),
-	  destFile= file=> dest+ "/"+ file.substring( file.lastIndexOf( "/")+ 1),
+	  destFile= file=> dest+ "/"+ file.substring( file.lastIndexOf( "/")+ 1, file.lastIndexOf(".idl"))+ ".js",
 	  convertAndSave= file=> convertFile( file).then( filetext=> writeFile( destFile( file), filetext), console.error)
 	const
 	  dest= process.argv[2],

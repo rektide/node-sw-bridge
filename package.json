@@ -8,6 +8,7 @@
 		"build": "npm run build:babel && npm run build:idl",
 		"build:babel": "babel --source-maps inline --out-dir build *.js",
 		"build:idl": "./build/idl-converter.js build/idl idl/*.idl",
+		"clean": "rm -rf build",
 		"prepublish": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
