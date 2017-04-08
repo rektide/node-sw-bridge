@@ -10,7 +10,7 @@ interface FetchController {
 
 dictionary RequestInit {
 	FetchSignal signal;
-}
+};
 
 [Exposed=(Window,Worker)]
 interface FetchSignal : EventTarget {
@@ -19,4 +19,4 @@ interface FetchSignal : EventTarget {
 
 	attribute EventHandler onabort;
 	attribute EventHandler onprioritychange;
-}
+};

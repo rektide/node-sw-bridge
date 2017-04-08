@@ -13,7 +13,7 @@ interface FetchObserver : EventTarget {
 dictionary RequestInit {
 	// …
 	ObserverCallback observe;
-}
+};
 
 callback ObserverCallback void (FetchObserver observer);
 
@@ -27,4 +27,4 @@ enum FetchState {
 [Constructor(TODO), Exposed=(Window,Worker)]
 interface FetchProgressEvent : ProgressEvent {
 	// Maybe we don't need anything else. Just move ProgressEvent to the fetch spec.
-}
+};
