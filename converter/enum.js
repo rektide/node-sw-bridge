@@ -7,24 +7,32 @@ export class Enum {
 
 export function RequestType( o, options){
 	options= Object.assign({}, defaults, options)
-	function makeValue( _name, i){
-		const
-		  name= options.nameNormalizer( _name, i),
-		  value= options.valueNormalizer( i, name),
-		  valueValue= value.constructor== String? JSON.stringify(value): value
-		return `${className}.${name} = ${value};`
+	function normalize( name, ordinal){
+		var o= {name, ordinal}
+		o.name= options.nameNormalize( o)
+		o.ordinal= options.ordinalNormalize( o)
+		return o
 	}
 	const
-	  className= options.classNameNormalizer( o.name),
-	  values= o.values.map( makeValue),
-	  klass= `class ${className} extends Enum { }\n${values.join("\n")}`
-	return quasilon`${klass}`
+	  className= options.classNameNormalize( o.name),
+	  normalized= o.values.map( normalize),
+	  byName= normalized.map( o=> quasilon`${className}.${o.name}= ${o.ordinal.toString()}`.ast.program),
+	  byValue= normalized.map( o=> quasilon`${className}[${o.ordinal.toString()}]= "${o.name}"`.ast.program),
+	  klass= quasilon`class ${className} extends String {
+		constructor( n){
+			super( typeof n=== "number"? ${className}[ n]: n)
+		}
+		get values(){
+			return []
+		}
+	  };\n${byName}\n${byValue}`
+	return klass
 }
 
 export let defaults= {
-	classNameNormalizer: i=> i,
-	nameNormalizer: i=> i,
-	valueNormalizer: i=> i
+	classNameNormalize: i=> i,
+	nameNormalize: i=> i.name,
+	ordinalNormalize: i=> i.ordinal+ 1
 }
 
 if (typeof require !== "undefined" && require.main === module) {
@@ -33,5 +41,5 @@ if (typeof require !== "undefined" && require.main === module) {
 		"values": ["A", "B"],
 		"extAttrs": []
 	})
-	console.log( JSON.stringify( result, null, "\t"))
+	console.log( result.code)
 }
