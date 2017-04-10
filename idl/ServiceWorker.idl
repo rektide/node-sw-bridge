@@ -1,0 +1,20 @@
+// @see https://w3c.github.io/ServiceWorker/#serviceworker-interface
+
+[SecureContext, Exposed=(Window,Worker)]
+interface ServiceWorker : EventTarget {
+	readonly attribute USVString scriptURL;
+	readonly attribute ServiceWorkerState state;
+	void postMessage(any message, optional sequence<object> transfer = []);
+
+	// event
+	attribute EventHandler onstatechange;
+};
+ServiceWorker implements AbstractWorker;
+
+enum ServiceWorkerState {
+	"installing",
+	"installed",
+	"activating",
+	"activated",
+	"redundant"
+};

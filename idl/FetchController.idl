@@ -1,3 +1,5 @@
+// @see https://github.com/whatwg/fetch/issues/447#issuecomment-281731850
+
 [Constructor(), Exposed=(Window,Worker)]
 interface FetchController {
 	readonly attribute FetchSignal signal;

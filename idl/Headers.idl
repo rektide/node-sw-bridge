@@ -1,3 +1,5 @@
+// @see https://fetch.spec.whatwg.org/#headers-class
+
 typedef (sequence<sequence<ByteString>> or record<ByteString, ByteString>) HeadersInit;
 
 [Constructor(optional HeadersInit init),

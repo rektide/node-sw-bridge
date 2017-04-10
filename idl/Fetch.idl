@@ -1,3 +1,5 @@
+// @see https://fetch.spec.whatwg.org/#fetch-method
+
 partial interface WindowOrWorkerGlobalScope {
 	[NewObject] Promise<Response> fetch(RequestInfo input, optional RequestInit init);
 };

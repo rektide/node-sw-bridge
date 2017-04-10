@@ -1,3 +1,5 @@
+// @see https://github.com/whatwg/fetch/issues/447#issuecomment-281731850
+
 [Exposed=(Window,Worker)]
 interface FetchObserver : EventTarget {
 	readonly attribute octet priority;

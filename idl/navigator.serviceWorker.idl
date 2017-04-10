@@ -1,0 +1,9 @@
+// @see https://w3c.github.io/ServiceWorker/#navigator-serviceworker
+
+partial interface Navigator {
+	[SecureContext, SameObject] readonly attribute ServiceWorkerContainer serviceWorker;
+};
+
+partial interface WorkerNavigator {
+	[SecureContext, SameObject] readonly attribute ServiceWorkerContainer serviceWorker;
+};
