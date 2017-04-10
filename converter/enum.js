@@ -1,4 +1,5 @@
 import { default as _quasilon} from "quasilon"
+import { StringLiteral } from "babel-types"
 
 const quasilon = _quasilon()
 
@@ -18,12 +19,13 @@ export function RequestType( o, options){
 	  normalized= o.values.map( normalize),
 	  byName= normalized.map( o=> quasilon`${className}.${o.name}= ${o.ordinal.toString()}`.ast.program),
 	  byValue= normalized.map( o=> quasilon`${className}[${o.ordinal.toString()}]= "${o.name}"`.ast.program),
+	  values= normalized.map( o=> new StringLiteral(o.name)),
 	  klass= quasilon`class ${className} extends String {
 		constructor( n){
 			super( typeof n=== "number"? ${className}[ n]: n)
 		}
 		get values(){
-			return []
+			return [${values}]
 		}
 	  };\n${byName}\n${byValue}`
 	return klass
