@@ -3,7 +3,7 @@ import { StringLiteral } from "babel-types"
 
 const quasilon = _quasilon({sourceType: "module"})
 
-export function RequestType( o, options){
+export function Enum( o, options){
 	options= Object.assign({}, defaults, options)
 	function normalize( name, ordinal){
 		var o= {name, ordinal}
@@ -47,7 +47,7 @@ export let defaults= {
 }
 
 if (typeof require !== "undefined" && require.main === module) {
-	var result= RequestType({
+	var result= Enum({
 		"name": "RequestType",
 		"values": ["A", "B"],
 		"extAttrs": []
