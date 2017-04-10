@@ -1,6 +1,5 @@
 import { default as _quasilon} from "quasilon"
 import { StringLiteral } from "babel-types"
-
 const quasilon = _quasilon({sourceType: "module"})
 
 export function Enum( o, options){
@@ -45,6 +44,8 @@ export let defaults= {
 	nameNormalize: i=> i.name,
 	ordinalNormalize: i=> i.ordinal+ 1
 }
+
+export default Enum
 
 if (typeof require !== "undefined" && require.main === module) {
 	var result= Enum({

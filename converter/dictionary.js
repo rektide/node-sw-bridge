@@ -28,6 +28,7 @@ export function Dictionary( o, options){
 		export default ${className}`
 	return klass
 }
+export default Dictionary
 
 if (typeof require !== "undefined" && require.main === module) {
 	function field(name){
