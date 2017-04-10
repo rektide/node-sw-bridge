@@ -1,6 +1,6 @@
 {
 	"name": "node-sw-bridge",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Expose a ServiceWorker from a converted node http.IncomingRequest and htpt.ServerResponse",
 	"main": "build/node-sw-bridge.js",
 	"module": "node-sw-bridge.js",

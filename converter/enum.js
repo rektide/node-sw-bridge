@@ -25,7 +25,7 @@ export function RequestType( o, options){
 			super( typeof n=== "number"? ${className}[ n]: n)
 		}
 		get values(){
-			return [${values}]
+			return [ null, ${values}]
 		}
 	  };\n${byName}\n${byValue}`
 	return klass
