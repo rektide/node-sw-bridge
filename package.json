@@ -19,21 +19,21 @@
 	"keywords": [],
 	"author": "rektide de la faye",
 	"license": "X11",
-	"dependencies": {
-		"babel-cli": "^6.24.1",
-		"babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-		"mz": "^2.6.0",
-		"node-web-streams": "^0.2.2",
-		"quasilon": "^1.2.0",
-		"web-streams-polyfill": "^1.3.2",
-		"webidl2": "^2.3.0"
-	},
 	"babel": {
 		"plugins": [
 			"transform-es2015-modules-commonjs"
 		]
 	},
+	"dependencies": {
+		"node-web-streams": "^0.2.2",
+		"web-streams-polyfill": "^1.3.2"
+	},
 	"devDependencies": {
-		"mkdirp": "^0.5.1"
+		"babel-cli": "^6.24.1",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+		"babel-types": "^6.24.1",
+		"mz": "^2.6.0",
+		"quasilon": "^1.2.0",
+		"webidl2": "^2.3.0"
 	}
 }
