@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-import {default as quasilon} from "quasilon"
-import {default as webidl} from "webidl2"
-import { access, mkdir, readFile, writeFile} from "mz/fs"
-
+import { access, mkdir, readFile, writeFile} from "fs/promises"
+import isMain from "is-main"
+import * as webidl from "webidl2"
 
 export async function parseIdl( filename){
 	const
@@ -11,7 +10,7 @@ export async function parseIdl( filename){
 	return idl
 }
 
-if (typeof require !== "undefined" && require.main === module){
+function main(){
 	const
 	  prettyJson= o=> JSON.stringify(o, null, "\t"),
 	  convertFile= file=> parseIdl( file, dest).then( prettyJson),
@@ -26,4 +25,8 @@ if (typeof require !== "undefined" && require.main === module){
 		return files.forEach( convertAndSave)
 	}
 	run()
+}
+
+if( isMain( import.meta)){
+	main()
 }
