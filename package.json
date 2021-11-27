@@ -6,9 +6,10 @@
 	"main": "build/node-sw-bridge.js",
 	"module": "node-sw-bridge.js",
 	"scripts": {
-		"build": "mkdir -p build/idl build/ts && npm run build:ts && npm run build:idl",
+		"build": "mkdir -p build/idl build/ts build/idl-ts && npm run build:idl:ts && npm run build:idl && npm run build:ts",
 		"build:idl": "./idl-converter.js build/idl idl/*.idl",
-		"build:ts": "webidl2ts -i ./idl/service-workers.idl -o build/ts/service-workers.d.ts",
+		"build:idl:ts": "webidl2ts -i ./idl/service-workers.idl -o build/idl-ts/service-workers.d.ts",
+		"build:ts": "tsc",
 		"clean": "rm -rf build",
 		"prepublish": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +22,7 @@
 	"author": "rektide de la faye",
 	"license": "MIT",
 	"dependencies": {
+		"event-target-shim": "^6.0.2",
 		"is-main": "^0.2.0",
 		"node-web-streams": "^0.2.2",
 		"web-streams-polyfill": "^1.3.2"
@@ -29,6 +31,7 @@
 		"@webref/idl": "^2.8.1",
 		"mz": "^2.6.0",
 		"quasilon": "^1.2.0",
+		"typescript": "^4.6.0-dev.20211126",
 		"webidl2": "^24.2.0",
 		"webidl2ts": "^1.0.4"
 	}

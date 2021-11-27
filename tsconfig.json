@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+		"moduleResolution": "node",
+		"outDir": "build/ts"
+    },
+	"include": [
+		"*.ts"
+	]
+}
