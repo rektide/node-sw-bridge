@@ -6,8 +6,9 @@
 	"main": "build/node-sw-bridge.js",
 	"module": "node-sw-bridge.js",
 	"scripts": {
-		"build": "mkdir -p build/idl && npm run build:idl",
+		"build": "mkdir -p build/idl build/ts && npm run build:ts && npm run build:idl",
 		"build:idl": "./idl-converter.js build/idl idl/*.idl",
+		"build:ts": "webidl2ts -i ./idl/service-workers.idl -o build/ts/service-workers.d.ts",
 		"clean": "rm -rf build",
 		"prepublish": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +29,7 @@
 		"@webref/idl": "^2.8.1",
 		"mz": "^2.6.0",
 		"quasilon": "^1.2.0",
-		"webidl2": "^24.2.0"
+		"webidl2": "^24.2.0",
+		"webidl2ts": "^1.0.4"
 	}
 }
